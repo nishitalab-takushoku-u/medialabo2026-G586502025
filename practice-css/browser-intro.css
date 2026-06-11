@@ -1,27 +1,56 @@
-p {
-	color: navy;
+p{
+color: navy;
 }
 
 p.info {
-	font-size: 10pt;
+	font-size: small;
+	background-color: #dfdfdf;
+}
+
+p.info {
+	font-size: 10px;
 }
 
 h1 {
-	background-color: #7f7fcf;
+	color: white;
+	text-shadow: navy 1px 0 10px;
+	/*background-color: #7f7fcf;*/
 }
 
 h2 {
-	border: solid 1px black;
+	color: #3f3faf;
+	/*border: solid 1px black;*/
+	background: linear-gradient(0.25turn, white, #ffefaf);
+	font-family: cursive;
 	margin: 5px;
 }
 
 div#zentai {
-	display: flex;
+	 display: grid;                      /* グリッドレイアウトにする*/
+    grid-template-columns: 1fr 1fr;     /* 2列にする．幅は 1:1 の比率*/
+    grid-auto-rows: 200px 200px;        /* 高さは 200px */
+    grid-gap: 10px;                     /* 隣り合う行（列）の間隔を 10px に*/
+
+    /*width: 500px;*/
+
+	/*display: flex;
 	flex-direction: row;
-	width: 1024px;
+	width: 1024px;*/
+}
+
+img {
+    float: right;   /* 画像を右に浮かせる */
+
+    /*width: 100px;
+    height: 100px;*/
+    margin: 10px 0 10px 10px;
 }
 
 div#zentai > div {
-	margin-left: 5px;
+	/*margin-left: 5px;*/
+    padding: 5px;
+
 	background-color: #ffefaf;
+
+	
 }
