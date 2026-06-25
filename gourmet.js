@@ -12,18 +12,34 @@ for(let n of gakka){
 
 //console.log("グルメ情報（検索結果は2件）");
 
-let a=2;
-console.log("グルメ情報（検索結果は"+a+"件）");
 
 
-let b=0;
+// let a=2;
+// console.log("グルメ情報（検索結果は"+a+"件）");
+
+
+// let b=0;
+// for(let n of data.results.shop){
+// b=b+1;
+// console.log("検索結果"+b+"件目");
+// console.log(n.name);
+// }
+console.log("グルメ情報(検索結果は"+2+"件)");
+let b = 1;
 for(let n of data.results.shop){
-b=b+1;
 console.log("検索結果"+b+"件目");
-console.log(n.name);
+console.log("名前:" + n.name);
+console.log("アクセス:" + n.access);
+console.log("住所:" + n.address);
+console.log("予算:" + n.budget.name);
+console.log("キャッチコピー:" + n.catch);
+console.log("ジャンル:" + n.genre.name);
+console.log("営業時間:" + n.open);
+console.log("最寄駅:" + n.station_name);
+console.log("サブジャンル:" + n.sub_genre.name);
+console.log("------------------------------")
+b = b + 1;
 }
-
-
 
 }
 
