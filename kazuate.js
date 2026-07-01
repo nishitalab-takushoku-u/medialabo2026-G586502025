@@ -12,19 +12,37 @@ let kaisu = 0;
 // ボタンを押した後の処理をする関数 hantei() の定義
 function hantei() {
   // ここから: 予想回数を1増やして，span#kaisu 要素のテキストを更新
-
+  kaisu = kaisu + 1;
+  let n=document.querySelector('span#kaisu');
+  n.textContent = kaisu;
   // ここまで: 予想回数を1増やして，span#kaisu 要素のテキストを更新
   
   // ここから: テキストボックスに指定された数値を yoso に代入する
-  let yoso;
+  let input = document.querySelector('input[name="yoso"]');
+  let yoso = Number(input.value);
+
+  let y = document.querySelector('span#qwe');
+  y.textContent = yoso;
   // ここまで: テキストボックスに指定された数値を yoso に代入する
   
   // ここから: 正解判定する
   // 　　　　  正解/不正解のときのメッセージを表示する
-
+  let p = document.querySelector('p[id="result"]');
+  if(kaisu > 3){
+    p.textContent = '答えは'+ kotae + 'でした．すでにゲームは終わっています';
+  }else if(yoso == kotae){
+    p.textContent = '正解です．おめでとう!';
+  }else if(kaisu == 3){
+    p.textContent = 'まちがい．残念でした答えは' + kotae + 'です．';
+  }else if(yoso < kotae){
+    p.textContent ='まちがい．答えはもっと大きいですよ';
+  }else{
+    p.textContent ='まちがい．答えはもっと小さいですよ';
+  }
   // ここまで: 正解判定する
 }
 
 // ここから: ボタンを押した時のイベントハンドラとして hantei を登録
-
+let button = document.querySelector('button#hantei');
+button.addEventListener('click',hantei);
 // ここまで: ボタンを押した時のイベントハンドラとして hantei を登録
