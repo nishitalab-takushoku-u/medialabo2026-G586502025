@@ -1,29 +1,7 @@
 
 // 課題3-2 のプログラムはこの関数の中に記述すること
 function print(data) {
-  /*メモ
-  console.log(campus.address);
-for(let n of campus.buildingD){
-	console.log(n);
-}
-for(let n of gakka){
-    console.log(n.name);
-}*/
 
-//console.log("グルメ情報（検索結果は2件）");
-
-
-
-// let a=2;
-// console.log("グルメ情報（検索結果は"+a+"件）");
-
-
-// let b=0;
-// for(let n of data.results.shop){
-// b=b+1;
-// console.log("検索結果"+b+"件目");
-// console.log(n.name);
-// }
 console.log("グルメ情報(検索結果は"+2+"件)");
 let b = 1;
 for(let n of data.results.shop){
@@ -45,21 +23,131 @@ b = b + 1;
 
 // 課題5-1 の関数 printDom() はここに記述すること
 function printDom(data) {
+  
 
+  let old = document.querySelector('#con')
+  if(old){
+    old.remove()
+  }
+
+  let con = document.createElement('div')
+  con.setAttribute('id', 'con')
+  document.body.insertAdjacentElement('afterend',con)
+
+  let d=0;
+  for(let n of data.results.shop){
+     d++;
+  }
+  let c=document.createElement('h2')
+  c.textContent='検索結果は'+d+'件です'
+  con.insertAdjacentElement('beforeend',c);
+
+
+  let i = 1
+  for(let n of data.results.shop){
+    let div = document.createElement('div')
+    div.setAttribute('class', 'shop')
+    con.insertAdjacentElement('beforeend', div)
+//〜件見つかりました〜のやつ
+    let h2 = document.createElement('h2')
+    h2.textContent = i + "件目"//←件目をかく
+    div.insertAdjacentElement('beforeend', h2)
+//写真
+    let img = document.createElement('img')
+    img.setAttribute('src',n.logo_image)
+    img.setAttribute('width', '200px')
+    img.setAttribute('alt',n.name)
+    div.insertAdjacentElement('beforeend', img)
+
+
+//お店の名前
+    let name = document.createElement('p')
+    name.textContent = "名前："+n.name
+    div.insertAdjacentElement('beforeend', name)
+
+//アクセス
+  let access = document.createElement('p')
+    access.textContent = "アクセス："+n.access
+    div.insertAdjacentElement('beforeend', access)
+    
+//住所
+  let address = document.createElement('p')
+    address.textContent = "住所："+n.address
+    div.insertAdjacentElement('beforeend', address)
+
+//予算
+  let budget = document.createElement('p')
+    budget.textContent = "予算："+n.budget.name
+    div.insertAdjacentElement('beforeend', budget)
+
+//キャッチコピー
+  let cat = document.createElement('p')
+    cat.textContent = "キャッチコピー："+n.catch
+    div.insertAdjacentElement('beforeend', cat)
+    
+//ジャンル
+  let genre = document.createElement('p')
+    genre.textContent = "ジャンル："+n.genre.name
+    div.insertAdjacentElement('beforeend', genre)   
+    
+//営業時間
+  let open = document.createElement('p')
+    open.textContent = "営業時間："+n.open
+    div.insertAdjacentElement('beforeend', open)  
+    
+//最寄駅
+  let station_name = document.createElement('p')
+    station_name.textContent = "最寄駅："+n.station_name
+    div.insertAdjacentElement('beforeend', station_name)  
+    
+//サブジャンル    
+  let sub_genre = document.createElement('p')
+    sub_genre.textContent ="サブジャンル："+ n.sub_genre.name
+    div.insertAdjacentElement('beforeend', sub_genre)       
+    
+    i++
+  }
 }
 
+let btn = document.querySelector('#search')//←ボタンを押したら検索結果が表示される動作を作る
+btn.addEventListener('click', printDom)
 // 課題6-1 のイベントハンドラ登録処理は以下に記述
-
-
-
+let b=document.querySelector('button#search');
+b.addEventListener('click',sendRequest);
 
 // 課題6-1 のイベントハンドラ sendRequest() の定義
 function sendRequest() {
+  let genre ;
+  let a = document.querySelector('input[name="shimei"]');
+  let yoso = a.value;
+  if(yoso=='ダイニングバー・バル'){
+    genre='G002';
+  }
+  if(yoso=='居酒屋'){
+    genre='G001';
+  }
+
+    let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+ genre +'.json'
+
+    // 通信開始
+    axios.get(url)
+        .then(showResult)   // 通信成功
+        .catch(showError)   // 通信失敗
+        .then(finish);      // 通信の最後の処理
 
 }
 
 // 課題6-1: 通信が成功した時の処理は以下に記述
 function showResult(resp) {
+  // サーバから送られてきたデータを出力
+    let data = resp.data;
+
+    // data が文字列型なら，オブジェクトに変換する
+    if (typeof data === 'string') {
+        data = JSON.parse(data);
+    }
+
+    printDom(data);
 
 }
 

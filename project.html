@@ -5,10 +5,11 @@
     <meta charset="utf-8">
     <title>課題1-4:検索結果を表示する</title>
      <link rel="stylesheet" href="project.css">
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 	 <script src="gourmet.js" defer></script>
   </head>
   <body>
-	        <h1>グルメ情報（検索結果は2件）</h1>
+	       <!-- <h1>グルメ情報（検索結果は2件）</h1>
 	        <h2>検索結果1件目</h2>
             <img src="unnamed.jpg" width="300">
 		<ul>	
@@ -34,7 +35,12 @@
             <li>営業時間: 月～日、祝日、祝前日: 17:00～翌5:00 （料理L.O. 翌3:00 ドリンクL.O. 翌4:00）</li>
             <li>最寄駅: 八王子</li>
             <li>サブジャンル: ダイニングバー・バル</li>
-		</ul>	
+		</ul> -->
+
+
+
+
+		<!-- <button id ="search">123</button>	 -->
 	   <!-- <h2>ハイパーリンク</h2>
 		<ul>
 			<li><a href="structure.html"
@@ -55,6 +61,15 @@
 				<ul>2021年12月25日打ち上げ。ハッブル望遠鏡の2.5倍ある直径6.5 m もの巨大な主鏡を持つ宇宙望遠鏡。ハッブル望遠鏡引退後の後継機と目されている。この宇宙望遠鏡には近赤外線カメラなどが搭載されており、約100億光年という遠距離にある天体から放射される微弱な赤外線（赤外線領域にスペクトルが偏移している）の観測に主眼が置かれている。</ul>
 
 		<img src="JWST_spacecraft_model_2.png"> -->
+
+	
+	<h1>グルメの検索結果</h1> 
+	<label for="shimei">検索キー： </label>
+    <input type="text" name="shimei" id="shimei" size="10">	
+
+    <button id = "search">検索</button>
+
+
   </body>
 </html>
 
