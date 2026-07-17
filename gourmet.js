@@ -126,6 +126,66 @@ function sendRequest() {
   if(yoso=='居酒屋'){
     genre='G001';
   }
+  if(yoso=='創作料理'){
+    genre='G003';
+  }
+  if(yoso=='和食'){
+    genre='G004';
+  }
+  if(yoso=='洋食'){
+    genre='G005';
+  }
+  if(yoso=='イタリアン・フレンチ'){
+    genre='G006';
+  }
+  if(yoso=='中華'){
+    genre='G007';
+  }
+  if(yoso=='焼肉・ホルモン'){
+    genre='G008';
+  }
+  if(yoso=='アジア・エスニック料理'){
+    genre='G009';
+  }
+  if(yoso=='各国料理'){
+    genre='G010';
+  }
+  if(yoso=='カラオケ・パーティ'){
+    genre='G011';
+  }
+  if(yoso=='バー・カクテル'){
+    genre='G012';
+  }
+  if(yoso=='ラーメン'){
+    genre='G013';
+  }
+  if(yoso=='カフェ・スイーツ'){
+    genre='G014';
+  }
+  if(yoso=='その他グルメ'){
+    genre='G015';
+  }
+  if(yoso=='お好み焼き・もんじゃ'){
+    genre='G016';
+  }
+  if(yoso=='韓国料理'){
+    genre='G017';
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+ genre +'.json'
 
