@@ -173,20 +173,6 @@ function sendRequest() {
   }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     let url = 'https://www.nishita-lab.org/web-contents/jsons/hotpepper/'+ genre +'.json'
 
     // 通信開始
@@ -225,7 +211,7 @@ function finish() {
 // 以下はグルメのデータサンプル
 // 注意: 第5回までは以下を変更しないこと！
 // 注意2: 課題6-1 で以下をすべて削除すること
-let data = {
+/*let data = {
   "results": {
     "api_version": "1.26",
     "results_available": 52,
@@ -425,4 +411,5 @@ let data = {
     ]
   }
 };
+*/
 
